@@ -72,6 +72,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Project Name
 
+![alt text](lab6WRRC.png)
+
 **Author**: Nathan Waters, Eden Brekke
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
@@ -92,12 +94,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 
-Name of feature: ________________________________
+Name of feature: Locations
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1hr
 
-Start time: _____
+Start time: 5:08 pm
 
-Finish time: _____
+Finish time: 6:38 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1.5hr
