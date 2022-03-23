@@ -23,12 +23,12 @@ class App extends React.Component {
     try { 
       let cityData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`);
 
-      let imgURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${cityData.data[0].lat},${cityData.data[0].lon}&zoom=13`;
+      // let imgURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${cityData.data[0].lat},${cityData.data[0].lon}&zoom=13`;
 
       console.log(cityData);
       this.setState({
         cityData : cityData,
-        cityImg : imgURL,
+        // cityImg : imgURL,
       });
 
     } catch (error) {
