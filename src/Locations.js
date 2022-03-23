@@ -1,22 +1,21 @@
 import React from 'react';
-// import Card from 'react/Card'
+import './Locations.css'
+import Card from 'react-bootstrap/Card'
 
 class Locations extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //   }
-  // }
   render () {
 
     let cityLocations = this.props.cityData.data ? this.props.cityData.data.map((city,idx) => {
       return(
-        <li><p>{city.display_name}</p><p>Lat: {city.lat}, Lon: {city.lon}</p></li>
+        <Card key={idx}>
+          <Card.Title>{city.display_name}</Card.Title>
+          <Card.Text>Lat: {city.lat}, Lon: {city.lon}</Card.Text>
+        </Card>
       )
     }) : null
-
       return(
         <>
+        <img src={this.props.cityImg} alt='test'/>
           <ul>
             {cityLocations}
           </ul> 

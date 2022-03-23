@@ -1,0 +1,9 @@
+.card {
+  border: solid black;
+  width: 20%;
+  height: 20%;
+}
+
+ul {
+  display: flex;
+}
