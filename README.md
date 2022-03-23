@@ -78,13 +78,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 **Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+This is an application that will grab the map, address, and location of a city the user types in.
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+They must get access to a database with a API and create the code to manage that data. 
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+This application uses react-javascript, and axios
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
@@ -103,3 +103,25 @@ Start time: 5:08 pm
 Finish time: 6:38 pm
 
 Actual time needed to complete: 1.5hr
+
+
+Name of feature: map
+
+Estimate of time needed to complete: 1hr
+
+Start time: 7 pm
+
+Finish time: 8:58 pm
+
+Actual time needed to complete: 2 hr
+
+
+Name of feature: try/catch
+
+Estimate of time needed to complete: 1hr
+
+Start time: 9:08 pm
+
+Finish time: 9:45 pm
+
+Actual time needed to complete: 1hr
