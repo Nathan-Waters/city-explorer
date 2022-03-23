@@ -1,8 +1,7 @@
 import React from 'react';
+import './SearchBar.css'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-
-// import Form from "react"
 
 class SearchBar extends React.Component {
   render () {

@@ -13,6 +13,7 @@ class Locations extends React.Component {
         </Card>
       )
     }) : null
+
       return(
         <>
         <img src={this.props.cityImg} alt='test'/>
