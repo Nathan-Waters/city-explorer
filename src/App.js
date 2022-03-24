@@ -15,20 +15,36 @@ class App extends React.Component {
       cityImg: '',
       error: false,
       errorMessage: '',
+      weatherData: [],
+      weatherQuery: 'Seattle',
     }
   }
 
+  // handleWeatherInput = (e)=> {
+  //   this.setState({
+  //     weatherQuery: e.target.value.split(',')[0]
+  //   })
+  //   console.log(this.state.weatherQuery);
+  // }
+  
+  getWeatherData = async (e) => {
+    e.preventDefault();
+    let results = await axios.get(`${process.env.REACT_APP_SERVER}/photos?weatherQuery=${this.state.weatherQuery}`)
+      console.log(results);
+      this.setState({
+        weatherData : this.state.results,
+      })
+    }
+
+    
   HandleSearch = async (e) => {
     e.preventDefault();
     try { 
       let cityData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`);
 
-      // let imgURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${cityData.data[0].lat},${cityData.data[0].lon}&zoom=13`;
-
       console.log(cityData);
       this.setState({
         cityData : cityData,
-        // cityImg : imgURL,
       });
 
     } catch (error) {
@@ -45,26 +61,49 @@ class App extends React.Component {
     })
   }
 
-  render () {
-  return(
-    <>
-      <Header/>
-      <SearchBar
-        data={this.state.cityData}
-        HandleSearch={this.HandleSearch}
-        handleCityInput={this.handleCityInput}
-      />
-      {this.state.error ? <p>{this.state.errorMessage}</p> :
-        <Locations
-        cityImg={this.state.cityImg}
-        cityData={this.state.cityData}
-        />
-      }
-      <Footer/>
-        
-    </>
-  );
+  
+    render () {
+      return(
+        <>
+        <Header/>
+        <SearchBar
+          data={this.state.cityData}
+          HandleSearch={this.HandleSearch}
+          handleCityInput={this.handleCityInput}
+          />
+        {this.state.error ? <p>{this.state.errorMessage}</p> :
+          <Locations
+          handleWeatherInput={this.getWeatherData}
+          cityImg={this.state.cityImg}
+          cityData={this.state.cityData}
+          />
+        }
+        <Footer/>
+          
+      </>
+    );
   }
 }
 
 export default App;
+
+// getWeather = async (city) => {
+//   try {
+//     let weatherRequestUrl = `${process.env.REACT_APP_SERVER}/weather?city=${city}`;
+//     let weatherData = await axios.get(weatherRequestUrl);
+//     this.setState({
+//       weatherData: weatherData.data,
+//     });
+//     this.setState({
+//       weatherModal: true,
+//     })
+//   } catch (error) {
+//     console.log("Error response: ", error.response);
+//     this.setState({
+//       error: true,
+//       showModal: true,
+//       errorMessage: `An Error Occurred ${error.response.status}, ${error.response.statusText}`,
+//     });
+//     console.log(this.state.errorMessage);
+//   }
+// };
