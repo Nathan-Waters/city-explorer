@@ -72,6 +72,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 # Project Name
 
+![alt text](lab_08_wrrc.png)
+
+![alt text](lab7WRRC.png)
+
 ![alt text](lab6WRRC.png)
 
 **Author**: Nathan Waters, Eden Brekke
@@ -114,14 +118,3 @@ Start time: 7 pm
 Finish time: 8:58 pm
 
 Actual time needed to complete: 2 hr
-
-
-Name of feature: try/catch
-
-Estimate of time needed to complete: 1hr
-
-Start time: 9:08 pm
-
-Finish time: 9:45 pm
-
-Actual time needed to complete: 1hr
