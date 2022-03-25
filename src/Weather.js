@@ -1,15 +1,25 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container'
 import './Header.css'
+import Card from 'react-bootstrap/Card'
 
 class Weather extends React.Component {
   render () {
-    return(
-      <Container className='header'>
-        <h1>City Explorer!</h1>
-      </Container>
-    );
+
+    let dailyReport = this.props.weatherData ? this.props.weatherData.map((forecast,idx) => {
+        return(
+          <Card key={idx}>
+            <Card.Title>{forecast.date}</Card.Title>
+            <Card.Text>{forecast.disc}</Card.Text>
+          </Card>
+        )
+      }) : null
+
+      return(
+        <>
+          {dailyReport}
+        </>
+      )
+    }
   }
-}
 
 export default Weather;
