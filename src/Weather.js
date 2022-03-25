@@ -9,7 +9,7 @@ class Weather extends React.Component {
         return(
           <Card key={idx}>
             <Card.Title>{forecast.date}</Card.Title>
-            <Card.Text>{forecast.disc}</Card.Text>
+            <Card.Text>{forecast.description}</Card.Text>
           </Card>
         )
       }) : null

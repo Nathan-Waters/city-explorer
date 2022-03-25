@@ -42,12 +42,12 @@ class App extends React.Component{
     //takes the next three days forecast 
     weatherData = async (e) => {
       let weatherData = await axios.get(`${process.env.REACT_APP_SERVER}/weather?weatherQuery=${this.state.city}`);
-
       //can be changed to more or less with [i]
       let newArr = [];
       for(let i = 0; i < 3; i++){
         newArr.push(weatherData.data[i])
       }
+      console.log(newArr);
       this.setState({
         weatherData : newArr
       })
@@ -74,3 +74,4 @@ class App extends React.Component{
 }
 
 export default App;
+
