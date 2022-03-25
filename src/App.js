@@ -3,67 +3,73 @@ import './App.css'
 import axios from 'axios';
 import Header from './Header'
 import Footer from './Footer'
+import Weather from './Weather'
 import Locations from './Locations';
 import SearchBar from './SearchBar';
 
-class App extends React.Component {
-  constructor(props) {
+class App extends React.Component{
+    constructor(props) {
     super(props);
     this.state = {
-      cityData: {},
-      city: '', 
-      cityImg: '',
-      error: false,
-      errorMessage: '',
+      cityData: null,
+      city: '',
+      weatherData : []
     }
   }
-
-  HandleSearch = async (e) => {
-    e.preventDefault();
-    try { 
-      let cityData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`);
-
-      // let imgURL = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${cityData.data[0].lat},${cityData.data[0].lon}&zoom=13`;
-
-      console.log(cityData);
+    //selects the city, 
+    handleCityInput = (event) => {
+      event.preventDefault();
       this.setState({
-        cityData : cityData,
-        // cityImg : imgURL,
-      });
-
-    } catch (error) {
-      this.setState({
-        error : true,
-        errorMessage : `An error occurrred: ${error.response.status}`
+        city: event.target.value
       })
     }
-  };
 
-  handleCityInput = (event) => {
-    this.setState({
-      city: event.target.value
-    })
-  }
+    // searches for a map of the city searched and assigns it as an object to cityData
+    HandleSearch = async (e) => {
+      e.preventDefault();
+        let cityData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`);
+
+        //gets the weather data
+        this.weatherData(); 
+
+        //collecting only the first object from city
+        this.setState({
+          cityData : cityData.data[0],
+        });
+      }
+
+
+    //takes the next three days forecast 
+    weatherData = async (e) => {
+      let weatherData = await axios.get(`${process.env.REACT_APP_SERVER}/weather?weatherQuery=${this.state.city}`);
+
+      //can be changed to more or less with [i]
+      let newArr = [];
+      for(let i = 0; i < 3; i++){
+        newArr.push(weatherData.data[i])
+      }
+      this.setState({
+        weatherData : newArr
+      })
+    }
 
   render () {
-  return(
-    <>
-      <Header/>
-      <SearchBar
-        data={this.state.cityData}
-        HandleSearch={this.HandleSearch}
-        handleCityInput={this.handleCityInput}
-      />
-      {this.state.error ? <p>{this.state.errorMessage}</p> :
-        <Locations
-        cityImg={this.state.cityImg}
-        cityData={this.state.cityData}
+    return(
+      <>
+        <Header/>
+        <SearchBar
+          handleCityInput={this.handleCityInput}
+          HandleSearch={this.HandleSearch}
         />
-      }
-      <Footer/>
-        
-    </>
-  );
+        <Locations
+          cityData={this.state.cityData}
+        />
+        <Weather
+          weatherData={this.state.weatherData}
+        />
+        <Footer/>
+      </>
+    );
   }
 }
 
