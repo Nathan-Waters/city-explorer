@@ -71,6 +71,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 # Project Name
+![alt text](lab-10-wrrc.png)
+
+![alt text](lab09WRRC.png)
 
 ![alt text](lab_08_wrrc.png)
 
@@ -78,7 +81,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ![alt text](lab6WRRC.png)
 
-![alt text](lab09WRRC.png)
 
 
 **Author**: Nathan Waters, Eden Brekke
@@ -133,3 +135,4 @@ Start time: 3:49 pm
 Finish time: 6:29 pm
 
 Actual time needed to complete: 2.5 hr
+
