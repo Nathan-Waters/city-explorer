@@ -127,6 +127,6 @@ Estimate of time needed to complete: 1h
 
 Start time: 3:49 pm
 
-Finish time:
+Finish time: 6:29 pm
 
-Actual time needed to complete:
+Actual time needed to complete: 2.5 hr
