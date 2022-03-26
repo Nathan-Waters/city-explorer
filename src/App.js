@@ -54,7 +54,7 @@ class App extends React.Component{
       for(let i = 0; i < 3; i++){
         weatherNewArr.push(weatherData.data[i])
       }
-      // console.log(weatherNewArr);
+      console.log(weatherNewArr);
       this.setState({
         weatherData : weatherNewArr
       })
